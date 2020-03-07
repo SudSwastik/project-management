@@ -16,17 +16,17 @@ public class ProjectController {
 	@Autowired
 	IProjectRepository projectRepository;
 	
-	@GetMapping("/new")
+	@GetMapping("/new/project")
 	public String displayProjectForm (Model model){
 		 Project project = new Project();
 		 model.addAttribute("project", project);
 		return "new-project";
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/save/project")
 	public String saveProjectForm (Project project, Model model){
 		projectRepository.save(project);
-		return "redirect:/new";
+		return "redirect:/new/project";
 	}
 
 }
